@@ -38,14 +38,14 @@ function MovieList() {
               {/* Use Nav.Link with "as={Link}" to avoid nested anchors */}
               <Nav.Link
                 as={Link}
-                to={`/movie/${movie._id}`}
+                to={`/movie/${encodeURIComponent(movie.title)}`}
                 onClick={() => handleClick(movie)}
               >
                 <Image className="image" src={movie.imageUrl} thumbnail />
               </Nav.Link>
               <Carousel.Caption>
                 <h3>{movie.title}</h3>
-                <BsStarFill /> {movie.avgRating} &nbsp;&nbsp; {movie.releaseDate}
+                <BsStarFill /> {movie.genre} &nbsp;&nbsp; {movie.releaseDate}
               </Carousel.Caption>
             </Carousel.Item>
           ))}
